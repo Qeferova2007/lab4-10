@@ -1,1 +1,20 @@
+a = [0] * int(input('Elementlərin sayı: '))
+
+for i in range(len(a)):
+    a[i] = int(input())
+
+print('A:', a)
+
+hasil = 1
+musbet_var = False
+
+for x in a:
+    if x > 0:
+        hasil *= x
+        musbet_var = True
+
+if musbet_var:
+    print(hasil)
+else:
+    print("Müsbət element yoxdur. Nəticə: 0")
 
