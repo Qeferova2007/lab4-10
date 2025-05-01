@@ -1,1 +1,20 @@
+import math
 
+def f(x):
+    return (math.exp(x) - 1) / (x - 1)
+
+def simple_iteration(x0, lam=0.1, eps=1e-5, max_iter=1000):
+    for i in range(max_iter):
+        x1 = x0 - lam * f(x0)  
+        if abs(x1 - x0) < eps: 
+            return x1
+        x0 = x1
+    print("Konvergensiya alınmadı.")
+    return None
+
+x0 = 0.8 
+
+root = simple_iteration(x0)
+
+if root is not None:
+    print(f"Təqribi kök (sadə iterasiya): x = {root:.5f}")
