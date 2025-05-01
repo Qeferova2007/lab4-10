@@ -1,1 +1,47 @@
+import random
+
+n = 4
+a = []
+for i in range(n):
+    row = []
+    for j in range(n):
+        number = random.randint(1, 20)
+        row.append(number)
+    a.append(row)
+
+print("Massiv:")
+for row in a:
+    print(row)
+
+f = open('massiv.txt', 'w')
+f.write(str(n) + '\n')
+for row in a:
+    for num in row:
+        f.write(str(num) + ' ')
+    f.write('\n')
+f.close()
+
+f = open('massiv.txt', 'r+')
+n = int(f.readline())
+tek_ededler = []
+
+for line in f:
+    strs = line.strip().split(' ')
+    print('strs =', strs)
+    for s in strs:
+        if s != '':
+            x = int(s)
+            if x % 2 == 1:
+                tek_ededler.append(x)
+
+print(tek_ededler)
+
+cem = sum(tek_ededler)
+f2 = open('tek_ededler.txt', 'w')
+f2.write(str(len(tek_ededler)) + '\n')
+for i in tek_ededler:
+    f2.write(str(i) + ' ')
+f2.write('\nCəm: ' + str(cem))
+f2.close()
+print(cem)
 
